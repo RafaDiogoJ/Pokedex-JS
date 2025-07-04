@@ -7,7 +7,7 @@ function buttonTipo(tipos) {
     return buttons;
 }
 
-async function loadPokemon() {
+async function loadPokemons() {
     if (loading) return;
     loading = true;
     let div = document.getElementById("pokemons");
@@ -83,7 +83,7 @@ async function initializePage() {
     let div = document.getElementById("pokemons");
     div.innerHTML = "";
     filtered = false;
-    await loadPokemon();
+    await loadPokemons();
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -96,12 +96,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 window.onscroll = () => {
-    if (
-        window.innerHeight + window.scrollY >= document.body.scrollHeight - 500 &&
-        !loading &&
-        !filtered
-    ) {
-        topo += 40;
-        loadPokemons();
-    };
-}
+  if (
+    window.innerHeight + window.scrollY >= document.body.scrollHeight - 500 &&
+    !loading &&
+    !filtered
+  ) {
+    topo += 40;
+    loadPokemons();
+  }
+};
